@@ -19,14 +19,18 @@ public class WorldgeneratorOres implements IWorldGenerator {
 	}
 	 private void generateSurface(World world, Random random, int blockX, int blockZ) 
 	 {
-		 {
+	 	// will generate the ore 10 times per chunk
+	 	int commonality = 10;
+		 for (int i = 0; i < commonality; ++i) {
 			 int Xcoord = blockX + random.nextInt(16);
 			 int Ycoord = random.nextInt(60);
 		 	int Zcoord = blockZ + random.nextInt(16);
 
 		 (new WorldGenMinable(mod_MoreStuff.CorundumOre.blockID, 10)).generate(world, random, Xcoord, Ycoord, Zcoord);}		 
 		 
-		 {
+		 // will only generate twice
+		 commonality = 2
+		 for (int i = 0; i < commonality; ++i) {
 			 int Xcoord = blockX + random.nextInt(16);
 			 int Ycoord = random.nextInt(60);
 			 int Zcoord = blockZ + random.nextInt(16);
