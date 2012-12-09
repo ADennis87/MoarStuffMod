@@ -49,8 +49,8 @@ public class mod_MoreStuff {
 
 		config.load();
 
-		ZirconBlockID = config.getBlock(ZirconBlockID, 538).getInt();
-		CorundumBlockID = config.getBlock(CorundumBlockID, 539).getInt();
+		ZirconBlockID = config.getBlock("ZirconOre", 538).getInt();
+		CorundumBlockID = config.getBlock("CorundumOre", 539).getInt();
 			
 		config.save();
 	}
