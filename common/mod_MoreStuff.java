@@ -4,6 +4,7 @@ import net.minecraft.src.Block;
 
 import net.minecraft.src.Item;
 import net.minecraft.src.ItemStack;
+import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.DungeonHooks;
 import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Mod;
@@ -38,12 +39,20 @@ public class mod_MoreStuff {
 	public static Item Zircon;
 	public static Item RawZircon;
 	
-	
+	public static int ZirconBlockID;
+	public static int CorundumBlockID;
 	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event) 
 	{
-		
+		Configuration config = new Configuration(event.getSuggestedConfigurationFile());
+
+		config.load();
+
+		ZirconBlockID = config.getBlock("myFirstBlock", 538).getInt();
+		CorundumBlockID = config.getBlock("myFirstBlock", 539).getInt();
+			
+		config.save();
 	}
 
 	@Init
@@ -68,8 +77,8 @@ public class mod_MoreStuff {
 
 	}
 	private void InitBlocksAndItems(){
-		ZirconOre = (new BlockZO(538, 1)).setBlockName("ZO");
-		CorundumOre = (new BlockCO(539, 0)).setBlockName("CO");
+		ZirconOre = (new BlockZO(ZirconBlockID, 1)).setBlockName("ZO");
+		CorundumOre = (new BlockCO(CorundumBlockID, 0)).setBlockName("CO");
 		
 		Ruby = (new ItemR(900)).setIconIndex(0).setItemName("UnreadableRuby");
 		Sapphire = (new ItemR(901)).setIconIndex(1).setItemName("UnreadableSapphire");
@@ -98,7 +107,7 @@ public class mod_MoreStuff {
 		GameRegistry.registerBlock(ZirconOre);
 		GameRegistry.registerBlock(CorundumOre);
 		
-		DungeonHooks.addDungeonLoot(new ItemStack(Corundum), 1, 1, 3);
+		DungeonHooks.addDungeonLoot(new ItemStack(Corundum), 100, 1, 3);
 		
 		GameRegistry.registerWorldGenerator(new WorldgeneratorOres());
 	}
