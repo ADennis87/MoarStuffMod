@@ -17,6 +17,11 @@ public class WorldgeneratorOres implements IWorldGenerator {
 		 case 0: generateSurface(world, random, chunkX*16, chunkZ*16);
 		 }
 	}
+	
+    /**
+     * @param blockX The south edge of the chunk
+     * @param blockZ The west edge of the chunk
+     */
 	 private void generateSurface(World world, Random random, int blockX, int blockZ) 
 	 {
 		 {
