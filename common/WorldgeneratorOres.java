@@ -28,6 +28,8 @@ public class WorldgeneratorOres implements IWorldGenerator {
 
 		 (new WorldGenMinable(mod_MoreStuff.CorundumOre.blockID, 10)).generate(world, random, Xcoord, Ycoord, Zcoord);}		 
 		 
+		 // will only generate twice
+		 commonality = 2
 		 for (int i = 0; i < commonality; ++i) {
 			 int Xcoord = blockX + random.nextInt(16);
 			 int Ycoord = random.nextInt(60);
