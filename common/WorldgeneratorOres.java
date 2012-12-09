@@ -19,8 +19,8 @@ public class WorldgeneratorOres implements IWorldGenerator {
 	}
 	
     /**
-     * @param blockX The south edge of the chunk
-     * @param blockZ The west edge of the chunk
+     * @param blockX The east edge of the chunk
+     * @param blockZ The south edge of the chunk
      */
 	 private void generateSurface(World world, Random random, int blockX, int blockZ) 
 	 {
